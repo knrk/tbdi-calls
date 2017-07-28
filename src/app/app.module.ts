@@ -11,10 +11,6 @@ import { CustomersModule } from './components/customers/customers.module';
 
 import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { PaymentsComponent } from './components/payments/payments.component';
-//import { CustomersComponent } from './components/customers/customers.component';
-//import { CustomerComponent } from './components/customer/customer.component';
-
-import { DataService } from './services/data.service';
 
 @NgModule({
   imports: [
@@ -28,10 +24,7 @@ import { DataService } from './services/data.service';
     AppComponent,
     DashboardComponent,
     PaymentsComponent
-  //  CustomerComponent,
-  //  CustomersComponent
   ],
-  providers: [DataService],
   bootstrap: [AppComponent]
 })
 

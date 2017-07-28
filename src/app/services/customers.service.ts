@@ -4,7 +4,7 @@ import 'rxjs/add/operator/map';
 
 
 @Injectable()
-export class DataService {
+export class CustomersService {
 
   constructor(public http:Http) { }
 

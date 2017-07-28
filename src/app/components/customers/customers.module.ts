@@ -7,6 +7,8 @@ import { CustomerComponent } from './customer.component';
 
 import { CustomersRoutingModule } from './customers-routing.module';
 
+import { CustomersService } from '../../services/customers.service';
+
 @NgModule({
   imports: [
     CommonModule,
@@ -17,7 +19,9 @@ import { CustomersRoutingModule } from './customers-routing.module';
     CustomersComponent,
     CustomerComponent
   ],
-  providers: []
+  providers: [
+    CustomersService
+  ]
 })
 
 export class CustomersModule {}
