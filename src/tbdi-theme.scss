@@ -9,3 +9,5 @@ $app-warn: mat-palette($mat-red);
 $tbdi-theme: mat-light-theme($app-primary, $app-accent, $app-warn);
 
 @include angular-material-theme($tbdi-theme);
+
+@import 'assets/scss/main';
