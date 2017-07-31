@@ -19,10 +19,10 @@
       "testTsconfig": "tsconfig.spec.json",
       "prefix": "app",
       "styles": [
-        "styles.scss",
-        "tbdi-theme.scss",
         "../node_modules/primeng/resources/primeng.min.css",
-        "../node_modules/primeng/resources/themes/omega/theme.css"
+        "../node_modules/primeng/resources/themes/omega/theme.css",
+        "styles.scss",
+        "tbdi-theme.scss"
       ],
       "scripts": [],
       "environmentSource": "environments/environment.ts",

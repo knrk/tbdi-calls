@@ -1,34 +1,40 @@
 <div class="app-content">
   <p-dataTable [value]="customers" [loading]="loading" [rowStyleClass]="lookupRowClass">
+      
       <p-column field="fullname" header="Jméno" [sortable]="true">
         <ng-template let-customer="rowData" pTemplate="body">
-          <a [href]="'/customers/' + customer.id"> {{ customer.fullname }} </a>
+          <a [href]="'/customer/' + customer.id"> {{ customer.fullname }} </a>
         </ng-template>
       </p-column>
+      
       <p-column field="phone" header="Telefonní číslo" styleClass="phone-number" [sortable]="true">
         <ng-template let-col let-customer="rowData" pTemplate="body">
           <span> {{ customer[col.field] | tel }} </span>
         </ng-template>
       </p-column>
-      <p-column field="email" header="Email"></p-column>
+      
+      <p-column field="email" header="Email" styleClass="email"></p-column>
+      
       <p-column field="registration" header="Datum registrace" styleClass="registration-date" [sortable]="true">
         <ng-template let-customer="rowData" pTemplate="body">
           {{ customer.registration | date:"mediumDate" }}
         </ng-template>
       </p-column>
-      <p-column field="active" header="Stav" [style]="{width: '100px'}">
+
+      <p-column field="active" header="Stav" styleClass="status">
         <ng-template let-col let-customer="rowData" pTemplate="body">
           <span class="dot" [class.inactive]="!customer[col.field]"> {{ (customer[col.field] === true) ? 'Aktivní' : 'Neaktivní' }} </span>
         </ng-template>
       </p-column>
+      
       <p-column field="actions" styleClass="actions" header="">
         <ng-template let-col let-customer="rowData" pTemplate="body">
           <a href="javascript:;" [mdMenuTriggerFor]="menu">
             <svg-icon src="assets/svg/dots-horizontal.svg" class="icon more"></svg-icon>
           </a>
-          <md-menu #menu="mdMenu" xPosition="before">
-            <a href="javascript:;" (click)="deactivateCustomer(customer.id)" md-menu-item>
-              <span>Deaktivovat</span>
+          <md-menu #menu="mdMenu" xPosition="before" classList="row-context-menu">
+            <a href="javascript:;" (click)="deactivateCustomer(customer.id, customer.active)" md-menu-item>
+              <span> {{ customer.active ? 'Deaktivovat' : 'Aktivovat' }} </span>
             </a>
             <a href="javascript:;" (click)="editCustomer(customer.id)" md-menu-item>
               <span>Detail</span>
@@ -36,5 +42,6 @@
           </md-menu>
         </ng-template>
       </p-column>
+
   </p-dataTable>
 </div>

@@ -7,6 +7,7 @@ $minor-text-color: #fff;
 $see-through: $major-bg-color;
 $dot-active: #8bc34a;
 $dot-inactive: #979797;
+$icon-outlined: rgba(255, 255, 255, 0.5);
 
 body {
   margin: 0;
@@ -31,13 +32,22 @@ header {
     display: flex;
     flex-direction: row;
     flex-wrap: nowrap;
-    justify-content: center;
+    justify-content: space-between;
     align-items: center;
     align-content: stretch;
 
     &.nav {
       align-items: flex-end;
       justify-content: flex-start;
+
+      a {
+        margin-right: 50px;
+        border-bottom: 2px solid transparent;
+
+        &.active {
+          border-bottom-color: $minor-text-color;
+        }
+      }
     }
 
     .mat-input-container {
@@ -66,12 +76,6 @@ header {
     font-size: 15px;
     color: $minor-text-color;
     text-decoration: none;
-    margin-right: 50px;
-    border-bottom: 2px solid transparent;
-
-    &.active {
-      border-bottom-color: $minor-text-color;
-    }
   }
 }
 
@@ -93,8 +97,16 @@ header {
     width: 100px;
     text-align: center;
   }
+  .status {
+    padding-left: 20px;
+    width: 100px;
+  }
   .registration-date {
     width: 150px;
+    padding: 0 10px;
+  }
+  .email {
+    padding: 0 10px;
   }
   .actions {
     width: 50px;
@@ -119,6 +131,7 @@ header {
     td {
       line-height: 48px;
       font-family: Lato, sans-serif;
+      padding: 0;
       font-size: 12px;
       color: #757575;
   
@@ -133,6 +146,13 @@ header {
         border-top-right-radius: 3px;
         border-bottom-right-radius: 3px;
         padding-right: 20px;
+      }
+      &.email,
+      &.registration-date {
+        padding: 0 10px;
+      }
+      &.status {
+        padding: 0;
       }
       &.phone-number {
         border-left: 1px solid $see-through;
@@ -185,6 +205,15 @@ header {
   vertical-align: initial;
   position: relative;
 
+  &.outline {
+    border-radius: 50%;
+    border: 1px solid $icon-outlined;
+  }
+
+  &.add {
+    fill: $icon-outlined;
+  }
+
   svg {
     width: 17px;
     height: 17px;
@@ -193,4 +222,10 @@ header {
 
 .mat-menu-panel {
   z-index: 100;
+ 
+  .mat-menu-item {
+    height: auto;
+    line-height: 32px;
+    font-size: 14px;
+  }
 }

@@ -6,9 +6,13 @@
         <input mdInput placeholder="" value="">
       </md-input-container>
     </span>
-    <span>u</span>
+    <span>
+      <a href="javascript:;">
+        <svg-icon src="assets/svg/plus.svg" class="icon outline add"></svg-icon>
+      </a>
+    </span>
     <md-toolbar-row class="nav">
-      <a routerLink="/" routerLinkActive="active">Dashboard</a>
+      <a routerLink="/" routerLinkActive="active" [routerLinkActiveOptions]="{exact:true}">Dashboard</a>
       <a routerLink="/payments" routerLinkActive="active">Přehled plateb</a>
       <a routerLink="/customers" routerLinkActive="active">Zákazníci</a>
     </md-toolbar-row>

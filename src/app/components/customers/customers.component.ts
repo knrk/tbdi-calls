@@ -15,6 +15,10 @@ export class CustomersComponent implements OnInit {
   constructor(private dataService:CustomersService) { }
 
   ngOnInit() {
+    this.loadData();
+  }
+
+  loadData() {
     this.loading = true;
     this.dataService.getCustomers().subscribe((customers) => {
       this.customers = customers;
@@ -26,9 +30,11 @@ export class CustomersComponent implements OnInit {
     return rowData.active ? '' : 'disabled';
   }
 
-  deactivateCustomer(customerId: number) {
-    console.log(customerId);
-    // @todo call REST API to deactivate customer
+  deactivateCustomer(customerId: number, customerActivity: boolean) {
+    this.dataService.toggleActivity(customerId, customerActivity).subscribe((customer) => {
+      this.loadData();
+      console.log(customer);
+    });
   }
 
   editCustomer(customerId: number) {
