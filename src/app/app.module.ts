@@ -2,17 +2,18 @@ import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NgModule } from '@angular/core';
 import { HttpModule } from '@angular/http';
-import { FormsModule } from '@angular/forms';
 import { RouterModule, Routes } from '@angular/router';
 import { MaterialModule } from '@angular/material';
 import { AngularSvgIconModule } from 'angular-svg-icon';
 
-import { AppComponent } from './app.component';
+import { AppComponent } from './app';
 import { AppRoutingModule } from './app-routing.module';
-import { CustomersModule } from './components/customers/customers.module';
+import { CustomersModule } from './pages/customers/customers.module';
+import { DialogModule } from './components/dialogs/dialogs.module';
 
-import { DashboardComponent } from './components/dashboard/dashboard.component';
-import { PaymentsComponent } from './components/payments/payments.component';
+import { DashboardComponent } from './pages/dashboard/dashboard.component';
+import { PaymentsComponent } from './pages/payments/payments.component';
+
 
 @NgModule({
   imports: [
@@ -22,6 +23,7 @@ import { PaymentsComponent } from './components/payments/payments.component';
     HttpModule,
     MaterialModule,
     CustomersModule,
+    DialogModule,
     AppRoutingModule // order matters! must be the last
   ],
   declarations: [

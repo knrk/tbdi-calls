@@ -123,6 +123,15 @@ header {
     border: transparent;
     background-color: $minor-bg-color;
 
+    &.ui-state-hover, 
+    &.ui-state-highlight {
+      border: transparent;
+
+      a {
+        color: inherit;
+      }
+    }
+
     &.ui-widget-content.disabled {
       //background-color: rgba(255, 255, 255, 0.7);  
       opacity: 0.5;

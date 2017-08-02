@@ -3,11 +3,11 @@
     <span></span>
     <span>
       <md-input-container class="example-full-width">
-        <input mdInput placeholder="" value="">
+        <input #headerFilter mdInput placeholder="" type="text" value="">
       </md-input-container>
     </span>
     <span>
-      <a href="javascript:;">
+      <a href="javascript:;" (click)="addCustomer()">
         <svg-icon src="assets/svg/plus.svg" class="icon outline add"></svg-icon>
       </a>
     </span>

@@ -1,5 +1,5 @@
 <div class="app-content">
-  <p-dataTable [value]="customers" [loading]="loading" [rowStyleClass]="lookupRowClass">
+  <p-dataTable [value]="customers" [loading]="loading" [rowStyleClass]="lookupRowClass" [globalFilter]="headerFilter">
       
       <p-column field="fullname" header="Jméno" [sortable]="true">
         <ng-template let-customer="rowData" pTemplate="body">
@@ -23,7 +23,7 @@
 
       <p-column field="active" header="Stav" styleClass="status">
         <ng-template let-col let-customer="rowData" pTemplate="body">
-          <span class="dot" [class.inactive]="!customer[col.field]"> {{ (customer[col.field] === true) ? 'Aktivní' : 'Neaktivní' }} </span>
+          <span class="dot" [class.inactive]="!customer.active"> {{ (customer.active === true) ? 'Aktivní' : 'Neaktivní' }} </span>
         </ng-template>
       </p-column>
       
@@ -36,8 +36,8 @@
             <a href="javascript:;" (click)="deactivateCustomer(customer.id, customer.active)" md-menu-item>
               <span> {{ customer.active ? 'Deaktivovat' : 'Aktivovat' }} </span>
             </a>
-            <a href="javascript:;" (click)="editCustomer(customer.id)" md-menu-item>
-              <span>Detail</span>
+            <a href="javascript:;" (click)="deleteCustomer(customer.id)" md-menu-item>
+              <span>Smazat</span>
             </a>
           </md-menu>
         </ng-template>

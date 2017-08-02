@@ -1,0 +1,24 @@
+<h2 md-dialog-title>Nový zákazník</h2>
+<form>
+  <md-dialog-content>
+    <md-input-container>
+      <input type="text" mdInput placeholder="Jméno" name="firstname" [(ngModel)]="name">
+    </md-input-container>
+    <md-input-container>
+      <input type="text" mdInput placeholder="Příjmení" name="lastname" [(ngModel)]="surname">
+    </md-input-container>
+    <br>
+    <md-input-container>
+      <input type="text" mdInput placeholder="Email" name="email" [(ngModel)]="email">
+    </md-input-container>
+    <br>
+    <md-input-container>
+      <span mdPrefix>+420</span>
+      <input type="tel" mdInput placeholder="Telefon" name="phone" [(ngModel)]="phone">
+    </md-input-container>
+  </md-dialog-content>
+</form>
+<md-dialog-actions>
+  <button md-button md-dialog-close>Storno</button>
+  <button md-button md-dialog-close (click)="addCustomer()">Přidat</button>
+</md-dialog-actions>
